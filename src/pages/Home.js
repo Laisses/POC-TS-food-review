@@ -2,7 +2,7 @@ import styled from "styled-components";
 import { useState } from "react";
 import { Places } from "../components/Places";
 import { Form } from "../components/Form";
-import { LIGHT_GREY, SECONDARY_FONT, YELLOW } from "../constants/constants";
+import { SECONDARY_FONT, YELLOW } from "../constants/constants";
 
 export const Home = () => {
     const [openForm, setOpenForm] = useState(false);

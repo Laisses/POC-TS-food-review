@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { LIGHT_GREY, BLACK, PRIMARY_FONT, DARK_GREY } from "../constants/constants";
+import { LIGHT_GREY, BLACK, PRIMARY_FONT } from "../constants/constants";
 import { Link } from "react-router-dom";
 import logo from "../assets/images/logo.png"
 
