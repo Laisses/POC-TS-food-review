@@ -1,4 +1,5 @@
 import { createGlobalStyle } from "styled-components";
+import { LIGHT_GREY, PRIMARY_FONT } from "../../constants/constants";
 
 export const GlobalStyle = createGlobalStyle`
     /* http://meyerweb.com/eric/tools/css/reset/
@@ -37,6 +38,8 @@ footer, header, hgroup, menu, nav, section {
 }
 body {
 	line-height: 1;
+	background-color: ${LIGHT_GREY};
+	font-family: ${PRIMARY_FONT};
 }
 ol, ul, li {
 	list-style: none;
