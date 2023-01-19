@@ -5,19 +5,23 @@ import { Place } from "./Place";
 export const Places = () => {
     return (
         <PlacesContainer>
-            <h2>
+            <Title>
                 My places
-            </h2>
+            </Title>
             <Place />
         </PlacesContainer>
     );
 };
 
 const PlacesContainer = styled.div`
-    background-color: red;
     margin: 0 auto 1rem auto;
     width: 50rem;
     @media ${device.laptop} {
         width: 40rem;
     }
+`;
+
+const Title = styled.h2`
+    font-size: 1.5rem;
+    margin-bottom: 1.3rem;
 `;

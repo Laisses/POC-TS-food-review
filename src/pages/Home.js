@@ -51,7 +51,7 @@ const Header = styled.h1`
 
 const Description = styled.p`
     font-size: 1.1rem;
-    margin-bottom: 2rem;
+    margin-bottom: 1.3rem;
 `;
 
 const Button = styled.button`
