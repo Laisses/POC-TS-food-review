@@ -6,10 +6,8 @@ import logo from "../assets/images/logo.png"
 export const Header = () => {
     return (
         <NavBar>
-            <StyledLinks>
-                <StyledLinks>
-                    <Logo src={logo} />
-                </StyledLinks>
+            <StyledLinks to="/">
+                <Logo src={logo} alt="eat, drink, review logo"/>
             </StyledLinks>
             <NavItem>Hello, you!</NavItem>
             <Div>
