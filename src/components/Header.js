@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { SECONDARY_FONT, LIGHT_GREY, BLACK, PRIMARY_FONT } from "../constants/constants";
+import { LIGHT_GREY, BLACK, PRIMARY_FONT } from "../constants/constants";
 import { Link } from "react-router-dom";
 import logo from "../assets/images/logo.png"
 
@@ -11,11 +11,11 @@ export const Header = () => {
                     <Logo src={logo} />
                 </StyledLinks>
             </StyledLinks>
-            <StyledLinks to="/reviews">
+            <NavItem>Hello, you!</NavItem>
+            <Div>
+                <StyledLinks to="/reviews">
                     <NavItem>My Reviews</NavItem>
                 </StyledLinks>
-            <Div>
-
                 <StyledLinks to="/">
                     <NavItem>My Profile</NavItem>
                 </StyledLinks>
