@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { LIGHT_GREY, BLACK, PRIMARY_FONT } from "../constants/constants";
+import { LIGHT_GREY, BLACK, PRIMARY_FONT, DARK_GREY } from "../constants/constants";
 import { Link } from "react-router-dom";
 import logo from "../assets/images/logo.png"
 
@@ -26,13 +26,14 @@ export const Header = () => {
 };
 
 const NavBar = styled.div`
-    height: 4rem;
+    height: 4.5rem;
     display: flex;
     align-items: center;
     justify-content: space-between;
     padding: 0 2rem;
-    box-shadow: 0px 1px 24px rgba(0, 0, 0, 0.12);
+    border-bottom: 1px solid #EDEDED;
     background-color: ${LIGHT_GREY};
+    margin-bottom: 2rem;
 `;
 
 const Logo = styled.img`
@@ -48,7 +49,7 @@ const NavItem = styled.p`
     color: ${BLACK};
     font-family: ${PRIMARY_FONT};
     font-size: 1.2rem;
-    margin-right: 1.8rem;
+    margin-left: 1.8rem;
 `;
 
 const Span = styled.span`
