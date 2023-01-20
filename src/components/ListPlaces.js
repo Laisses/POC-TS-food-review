@@ -14,7 +14,7 @@ export const ListOfPlaces = place => {
     const ratePlace = (rating, placeId) => {
         if (rating === undefined) {
             return (
-                <RatingForm props={placeId}/>
+                <RatingForm placeId={placeId}/>
             );
         } else if (rating === "terrible") {
             return (

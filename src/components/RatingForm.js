@@ -3,11 +3,11 @@ import styled from "styled-components";
 import { BLACK } from "../constants/constants";
 import { RatingButton } from "./RatingButton";
 
-export const RatingForm = ({id}) => {
+export const RatingForm = ({placeId}) => {
     const [display, SetDisplay] = useState(false);
 
     const sendReview = review => {
-        console.log(`envou a nota ${review} no id ${id}`);
+        console.log(`envou a nota ${review} no id ${placeId}`);
     };
 
     return (
