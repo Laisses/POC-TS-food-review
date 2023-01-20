@@ -6,13 +6,13 @@ const places = [
         id: 1,
         name: "Pub",
         category: "Bar",
-        rating: "",
+        rating: undefined,
     },
     {
         id: 2,
         name: "Restaurante1",
         category: "Restaurante",
-        rating: "bom",
+        rating: "ok",
     }
 ];
 

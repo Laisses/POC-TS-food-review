@@ -3,17 +3,34 @@ import styled from "styled-components";
 import { BLACK } from "../constants/constants";
 import { RatingButton } from "./RatingButton";
 
-export const RatingForm = () => {
+export const RatingForm = ({id}) => {
     const [display, SetDisplay] = useState(false);
+
+    const sendReview = review => {
+        console.log(`envou a nota ${review} no id ${id}`);
+    };
+
     return (
         <DropDown onClick={() => SetDisplay(!display)}>
             <RatingButton />
             <DropDownContent visibleForm={display}>
-                <Options>Never again</Options>
-                <Options>No</Options>
-                <Options>Meh</Options>
-                <Options>I like it</Options>
-                <Options>LOVE it</Options>
+                <Options
+                    onClick={() => sendReview("terrible")}>
+                    Never again
+                </Options>
+                <Options
+                    onClick={() => sendReview("bad")}>
+                    No
+                </Options>
+                <Options onClick={() => sendReview("ok")}>
+                    Meh
+                </Options>
+                <Options onClick={() => sendReview("good")}>
+                    I like it
+                </Options>
+                <Options onClick={() => sendReview("great")}>
+                    LOVE it
+                </Options>
             </DropDownContent>
         </DropDown>
     );

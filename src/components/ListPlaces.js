@@ -3,22 +3,38 @@ import { DARK_GREY } from "../constants/constants";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faPenToSquare, faTrashCan } from '@fortawesome/free-solid-svg-icons';
 import { RatingForm } from "./RatingForm";
-import { OneStar } from "../constants/stars";
+import { OneStar, TwoStars, ThreeStars, FourStars, FiveStars } from "../constants/stars";
 import { useState } from "react";
 import { EditForm } from "./EditForm";
 
 export const ListOfPlaces = place => {
-    const { name, category, rating } = place;
+    const { id, name, category, rating } = place;
     const [edit, setEdit] = useState(true);
 
-    const ratePlace = rating => {
-        if (rating === "") {
+    const ratePlace = (rating, placeId) => {
+        if (rating === undefined) {
             return (
-                <RatingForm />
+                <RatingForm props={placeId}/>
             );
-        } else if (rating === "bom") {
+        } else if (rating === "terrible") {
             return (
                 <OneStar />
+            );
+        } else if (rating === "bad") {
+            return (
+                <TwoStars />
+            );
+        } else if (rating === "ok") {
+            return (
+                <ThreeStars />
+            );
+        } else if (rating === "good") {
+            return (
+                <FourStars />
+            );
+        } else if (rating === "great") {
+            return (
+                <FiveStars />
             );
         }
     };
@@ -34,7 +50,7 @@ export const ListOfPlaces = place => {
             <ItemsContainer>
                 <Item>{name}</Item>
                 <Item>{category}</Item>
-                <Item>{ratePlace(rating)}</Item>
+                <Item>{ratePlace(rating, id)}</Item>
                 <Item>
                     <EditIcons onClick={() => setEdit(true)}>
                         <FontAwesomeIcon icon={faPenToSquare} />
