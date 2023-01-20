@@ -1,12 +1,8 @@
 import styled from "styled-components";
-import { useState } from "react";
 import { Places } from "../components/Places";
-import { Form } from "../components/Form";
 import { SECONDARY_FONT, YELLOW } from "../constants/constants";
 
 export const Home = () => {
-    const [openForm, setOpenForm] = useState(false);
-
     return (
         <MainContainer>
             <IntroContainer>
@@ -18,11 +14,6 @@ export const Home = () => {
                 </Description>
             </IntroContainer>
             <Places />
-            <Button
-                onClick={() => setOpenForm(!openForm)}>
-                add new place
-            </Button>
-            {openForm && <Form />}
         </MainContainer>
     );
 };
@@ -52,17 +43,4 @@ const Header = styled.h1`
 const Description = styled.p`
     font-size: 1.1rem;
     margin-bottom: 1.3rem;
-`;
-
-const Button = styled.button`
-    width: 10rem;
-    height: 2rem;
-    color: #fcfcfc;
-    background-color: ${YELLOW};
-    border: none;
-    border-radius: .8rem;
-    box-shadow: 0px 2px 15px rgba(0,0,0,0.2);
-    &:active {
-        transform: translateY(1px);
-    }
 `;
