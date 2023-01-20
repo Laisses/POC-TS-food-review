@@ -8,7 +8,7 @@ export const RatingForm = () => {
     return (
         <DropDown onClick={() => SetDisplay(!display)}>
             <RatingButton />
-            <DropDownContent visibility={display}>
+            <DropDownContent visibleForm={display}>
                 <Options>Never again</Options>
                 <Options>No</Options>
                 <Options>Meh</Options>
@@ -25,7 +25,7 @@ const DropDown = styled.div`
 `;
 
 const DropDownContent = styled.div`
-    display: ${props => props.visibility ? "block" : "none"};
+    display: ${props => props.visibleForm ? "block" : "none"};
     position: absolute;
     background-color: #f9f9f9;
     max-width: 7rem;
