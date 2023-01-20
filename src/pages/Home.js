@@ -34,7 +34,7 @@ const Header = styled.h1`
     font-family: ${SECONDARY_FONT};
     font-size: 2rem;
     text-align: center;
-    margin-bottom: 2rem;
+    margin-bottom: .6rem;
     span {
         color: ${YELLOW};
     }
@@ -42,5 +42,5 @@ const Header = styled.h1`
 
 const Description = styled.p`
     font-size: 1.1rem;
-    margin-bottom: 1.3rem;
+    margin-bottom: 2.3rem;
 `;

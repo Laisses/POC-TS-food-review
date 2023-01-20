@@ -1,4 +1,3 @@
-//import styled from "styled-components";
 import styled from "styled-components";
 import { OneStar } from "../constants/stars";
 import { DARK_GREY } from "../constants/constants";
@@ -69,9 +68,10 @@ export const Place = () => {
 };
 
 const List = styled.ul`
-    border: 1px solid ${DARK_GREY};
     border-radius: 1rem;
     padding: 0 1rem;
+    margin-bottom: 1rem;
+    box-shadow: 0px 2px 15px rgba(0,0,0,0.2);
 `;
 
 const ListTitle = styled.div`
