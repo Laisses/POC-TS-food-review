@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { YELLOW } from "../constants/constants";
+import { DARK_GREY } from "../constants/constants";
 
 export const RatingButton = () => {
     return (
@@ -8,13 +8,14 @@ export const RatingButton = () => {
 };
 
 const Button = styled.button`
-    width: 5rem;
-    height: 20px;
+    width: 7rem;
+    height: 30px;
+    font-size: 1rem;
     color: #fcfcfc;
-    background-color: ${YELLOW};
+    background-color: ${DARK_GREY};
     border: none;
-    border-radius: 3px;
+    border-radius: 10px;
     &:active {
-        background-color: #edb202;
+        background-color: #b5bdc4;
     }
 `;

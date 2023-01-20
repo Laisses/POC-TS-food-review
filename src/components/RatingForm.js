@@ -4,19 +4,18 @@ import { BLACK } from "../constants/constants";
 import { RatingButton } from "./RatingButton";
 
 export const RatingForm = () => {
-    const [display, SetDisplay] = useState("none");
+    const [display, SetDisplay] = useState(false);
     return (
-        <DropDown >
+        <DropDown onClick={() => SetDisplay(!display)}>
             <RatingButton />
             <DropDownContent visibility={display}>
-                <Options>Never again!</Options>
-                <Options>If that's the only one left... Maybe!</Options>
-                <Options>Meh!</Options>
-                <Options>I like it!</Options>
-                <Options>The beginning of a beautiful love story</Options>
+                <Options>Never again</Options>
+                <Options>No</Options>
+                <Options>Meh</Options>
+                <Options>I like it</Options>
+                <Options>LOVE it</Options>
             </DropDownContent>
         </DropDown>
-
     );
 };
 
@@ -26,17 +25,16 @@ const DropDown = styled.div`
 `;
 
 const DropDownContent = styled.div`
-    display: ${props => props.visibility};
+    display: ${props => props.visibility ? "none" : "block"};
     position: absolute;
     background-color: #f9f9f9;
-    min-width: 160px;
-    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    max-width: 7rem;
     z-index: 1;
 `;
 
 const Options = styled.p`
     color: ${BLACK};
-    padding: 12px 16px;
+    padding: 10px 10px;
     text-decoration: none;
     display: block;
     &:hover {

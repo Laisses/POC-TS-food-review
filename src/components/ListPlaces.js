@@ -22,7 +22,6 @@ export const ListOfPlaces = place => {
 
     return (
         <ListItems>
-            <DisplayContainer>
                 <Item>{name}</Item>
                 <Item>{category}</Item>
                 <Item>{ratePlace(rating)}</Item>
@@ -34,27 +33,25 @@ export const ListOfPlaces = place => {
                         <FontAwesomeIcon icon={faTrashCan} />
                     </EditIcons>
                 </Item>
-            </DisplayContainer>
         </ListItems>
     );
 };
 
 const Item = styled.div`
     min-width: 8rem;
-    padding: .8rem 0;
+    height: 3rem;
     display: flex;
+    align-items: center;
 `;
 
 const ListItems = styled.li`
+    display: flex;
+    flex-direction: row;
+    border-top: 1px solid ${DARK_GREY};
+    justify-content: space-between;
+    align-items: center;
 `;
 
 const EditIcons = styled.div`
     margin-right: 2rem;
-`;
-
-const DisplayContainer = styled.div`
-    display: flex;
-    border-top: 1px solid ${DARK_GREY};
-    align-items: center;
-    justify-content: space-between;
 `;
