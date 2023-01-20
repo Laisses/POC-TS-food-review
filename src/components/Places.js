@@ -2,7 +2,7 @@ import styled from "styled-components";
 import { useState } from "react";
 import { device } from "../constants/device";
 import { Place } from "./Place";
-import { Form } from "../components/Form";
+import { Form } from "../components/NewPlace";
 import { YELLOW } from "../constants/constants";
 
 export const Places = () => {
@@ -14,7 +14,9 @@ export const Places = () => {
             </Title>
             <Place />
             <Button
-                onClick={() => setOpenForm(!openForm)}>
+                onClick={() => setOpenForm(true)}
+                props={setOpenForm}
+            >
                 add new place
             </Button>
             {openForm && <Form />}

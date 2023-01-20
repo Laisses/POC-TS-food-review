@@ -5,7 +5,7 @@ import { faPenToSquare, faTrashCan } from '@fortawesome/free-solid-svg-icons';
 import { RatingForm } from "./RatingForm";
 import { OneStar, TwoStars, ThreeStars, FourStars, FiveStars } from "../constants/stars";
 import { useState } from "react";
-import { EditForm } from "./EditForm";
+import { EditForm } from "./EditPlace";
 
 export const ListOfPlaces = place => {
     const { id, name, category, rating } = place;

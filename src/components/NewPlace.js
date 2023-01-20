@@ -5,9 +5,9 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCircleCheck, faCircleXmark } from '@fortawesome/free-solid-svg-icons';
 import { device } from "../constants/device";
 
-export const EditForm = props => {
-    const {name, category, setEdit} = props;
-    const [form, setForm] = useState({name, category});
+export const Form = props => {
+    const {setOpenForm} = props;
+    const [form, setForm] = useState({name: "", category: ""});
 
     const handleForm = e => {
         const { name, value } = e.target;
@@ -15,40 +15,46 @@ export const EditForm = props => {
     };
 
     const submitForm = () => {
-        console.log("mandou a mudança")
+        console.log("mandou novo lugar");
+        setOpenForm(false);
     };
 
     return (
-        <EditFormContainer>
+        <Container>
             <TextContainer>
+                <TextLabel for="name">name</TextLabel>
                 <TextInput
                     id="name"
                     name="name"
-                    value={name}
                     onChange={e => handleForm(e)}
                 />
+                <TextLabel for="category">category</TextLabel>
                 <TextInput
                     id="category"
                     name="category"
-                    value={category}
                     onChange={e => handleForm(e)}
                 />
             </TextContainer>
             <EditIcons onClick={() => submitForm()}>
                 <FontAwesomeIcon icon={faCircleCheck} color="#34A621" />
             </EditIcons>
-            <EditIcons onClick={() => setEdit(false)}>
+            <EditIcons onClick={() => setOpenForm(false)}>
                 <FontAwesomeIcon icon={faCircleXmark} color="#D90D0D" />
             </EditIcons>
-        </EditFormContainer>
+        </Container>
     );
 };
 
-const EditFormContainer = styled.div`
-    margin-bottom: 1rem;
+const Container = styled.ul`
     display: flex;
-    justify-content: space-between;
     align-items: center;
+    border: 1px solid ${DARK_GREY};
+    border-radius: 1rem;
+    height: 3rem;
+    padding: 0 1rem;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+
 `;
 
 const TextInput = styled.input`
@@ -67,6 +73,12 @@ const TextInput = styled.input`
     @media ${device.laptop} {
         margin-right: 3rem;
     }
+`;
+
+const TextLabel = styled.label`
+    display: flex;
+    align-items: center;
+    margin-right: 1rem;
 `;
 
 const TextContainer = styled.form`
