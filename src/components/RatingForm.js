@@ -25,7 +25,7 @@ const DropDown = styled.div`
 `;
 
 const DropDownContent = styled.div`
-    display: ${props => props.visibility ? "none" : "block"};
+    display: ${props => props.visibility ? "block" : "none"};
     position: absolute;
     background-color: #f9f9f9;
     max-width: 7rem;
