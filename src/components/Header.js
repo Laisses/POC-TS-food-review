@@ -33,7 +33,7 @@ const NavBar = styled.div`
     padding: 0 2rem;
     border-bottom: 1px solid #EDEDED;
     background-color: ${LIGHT_GREY};
-    margin-bottom: 2rem;
+    margin-bottom: 1rem;
 `;
 
 const Logo = styled.img`

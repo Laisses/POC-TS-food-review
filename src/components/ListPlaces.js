@@ -9,7 +9,7 @@ import { EditForm } from "./EditForm";
 
 export const ListOfPlaces = place => {
     const { id, name, category, rating } = place;
-    const [edit, setEdit] = useState(true);
+    const [edit, setEdit] = useState(false);
 
     const ratePlace = (rating, placeId) => {
         if (rating === undefined) {
