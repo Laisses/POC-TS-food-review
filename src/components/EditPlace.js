@@ -25,13 +25,13 @@ export const EditForm = props => {
                 <TextInput
                     id="name"
                     name="name"
-                    value={name}
+                    value={form.name}
                     onChange={e => handleForm(e)}
                 />
                 <TextInput
                     id="category"
                     name="category"
-                    value={category}
+                    value={form.category}
                     onChange={e => handleForm(e)}
                 />
             </TextContainer>
