@@ -9,7 +9,6 @@ export const EditForm = props => {
     const {name, category, setEdit} = props;
     const [form, setForm] = useState({name, category});
 
-
     const handleForm = e => {
         const { name, value } = e.target;
         setForm({ ...form, [name]: value });
@@ -49,6 +48,7 @@ const EditFormContainer = styled.div`
     margin-bottom: 1rem;
     display: flex;
     justify-content: space-between;
+    align-items: center;
 `;
 
 const TextInput = styled.input`
@@ -60,6 +60,7 @@ const TextInput = styled.input`
     display: flex;
     align-items: center;
     margin-right: 6rem;
+    padding-left: .3rem;
     &:focus {
         outline: none;
     }
