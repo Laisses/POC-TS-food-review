@@ -15,11 +15,10 @@ export const Places = () => {
             <Place />
             <Button
                 onClick={() => setOpenForm(true)}
-                props={setOpenForm}
             >
                 add new place
             </Button>
-            {openForm && <Form />}
+            {openForm && <Form setOpenForm={setOpenForm} />}
         </PlacesContainer>
     );
 };

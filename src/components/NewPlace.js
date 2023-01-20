@@ -22,13 +22,13 @@ export const Form = props => {
     return (
         <Container>
             <TextContainer>
-                <TextLabel for="name">name</TextLabel>
+                <TextLabel htmlFor="name">name</TextLabel>
                 <TextInput
                     id="name"
                     name="name"
                     onChange={e => handleForm(e)}
                 />
-                <TextLabel for="category">category</TextLabel>
+                <TextLabel htmlFor="category">category</TextLabel>
                 <TextInput
                     id="category"
                     name="category"
