@@ -1,20 +1,22 @@
 import styled from "styled-components";
-import { DARK_GREY } from "../constants/constants";
+import { DARK_GREY, BASE_URL } from "../constants/constants";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faPenToSquare, faTrashCan } from '@fortawesome/free-solid-svg-icons';
 import { RatingForm } from "./RatingForm";
 import { OneStar, TwoStars, ThreeStars, FourStars, FiveStars } from "../constants/stars";
 import { useState } from "react";
 import { EditForm } from "./EditPlace";
+import axios from "axios";
 
 export const ListOfPlaces = place => {
     const { id, name, category, rating } = place;
     const [edit, setEdit] = useState(false);
+    const [deleting, setDeleting] = useState(false);
 
     const ratePlace = (rating, placeId) => {
-        if (rating === undefined) {
+        if (rating === null) {
             return (
-                <RatingForm placeId={placeId}/>
+                <RatingForm placeId={placeId} />
             );
         } else if (rating === "terrible") {
             return (
@@ -39,8 +41,24 @@ export const ListOfPlaces = place => {
         }
     };
 
+    const deletePlace = async () => {
+        const confirmation = window.confirm("Are Sure you want this place?");
+
+        if (confirmation) {
+            setDeleting(true);
+            try {
+                await axios.delete(`${BASE_URL}/${id}`);
+                window.location.reload();
+            } catch (err) {
+                console.log(err.response.data);
+                setDeleting(false);
+            }
+        }
+    };
+
     const props = {
         setEdit,
+        id,
         name,
         category
     };
@@ -50,18 +68,27 @@ export const ListOfPlaces = place => {
             <ItemsContainer>
                 <Item>{name}</Item>
                 <Item>{category}</Item>
-                <Item>{ratePlace(rating, id)}</Item>
+                {deleting
+                    ?
+                    <Item>Deleting...</Item>
+                    :
+                    <Item>{ratePlace(rating, id)}</Item>
+                }
                 <Item>
-                    <EditIcons onClick={() => setEdit(true)}>
+                    <EditIcons
+                        onClick={() => setEdit(true)}
+                        disabled={deleting}>
                         <FontAwesomeIcon icon={faPenToSquare} />
                     </EditIcons>
-                    <EditIcons>
+                    <EditIcons
+                        onClick={() => deletePlace()}
+                        disabled={deleting}>
                         <FontAwesomeIcon icon={faTrashCan} />
                     </EditIcons>
                 </Item>
             </ItemsContainer>
             <ItemsContainerEdit>
-                {edit && <EditForm {...props}/>}
+                {edit && <EditForm {...props} />}
             </ItemsContainerEdit>
         </ListItems>
     );
@@ -96,4 +123,5 @@ const ItemsContainerEdit = styled.div`
 
 const EditIcons = styled.div`
     margin-right: 2rem;
+    pointer-events: ${props => props.disabled ? "none" : "auto"};
 `;
