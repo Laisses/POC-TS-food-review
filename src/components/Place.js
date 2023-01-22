@@ -28,7 +28,7 @@ export const Place = () => {
     } else if (places.length === 0) {
         return (
             <>
-                <NoItemMessage>You hanven't added a place yet</NoItemMessage>
+                <NoItemMessage>You haven't added a place yet</NoItemMessage>
                 <NewPlaceButton />
             </>
 
