@@ -1,14 +1,12 @@
 import styled from "styled-components";
 import axios from "axios";
 import { ListOfPlaces } from "./ListPlaces";
-import { BASE_URL, YELLOW } from "../constants/constants";
+import { BASE_URL } from "../constants/constants";
 import { useEffect, useState } from "react";
-import { Form } from "../components/NewPlace";
+import { NewPlaceButton } from "./NewPlaceButton";
 
 export const Place = () => {
     const [places, setPlaces] = useState(undefined);
-    const [openForm, setOpenForm] = useState(false);
-
 
     useEffect(() => {
         getPlaces();
@@ -29,7 +27,11 @@ export const Place = () => {
         );
     } else if (places.length === 0) {
         return (
-            <NoItemMessage>You hanven't added a place yet</NoItemMessage>
+            <>
+                <NoItemMessage>You hanven't added a place yet</NoItemMessage>
+                <NewPlaceButton />
+            </>
+
         );
     } else if (places.length > 0) {
         return (
@@ -46,12 +48,7 @@ export const Place = () => {
                         {...p}
                     />)}
                 </List>
-                <Button
-                    onClick={() => setOpenForm(true)}
-                >
-                    add new place
-                </Button>
-                {openForm && <Form setOpenForm={setOpenForm} />}
+                <NewPlaceButton />
             </>
         );
     }
@@ -79,17 +76,4 @@ const Item = styled.div`
 
 const NoItemMessage = styled.h2`
     margin: 4rem;
-`;
-
-const Button = styled.button`
-    width: 10rem;
-    height: 2rem;
-    color: #fcfcfc;
-    background-color: ${YELLOW};
-    border: none;
-    border-radius: .8rem;
-    box-shadow: 0px 2px 15px rgba(0,0,0,0.2);
-    &:active {
-        transform: translateY(1px);
-    }
 `;
