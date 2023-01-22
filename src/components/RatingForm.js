@@ -1,38 +1,56 @@
 import { useState } from "react";
 import styled from "styled-components";
-import { BLACK } from "../constants/constants";
+import { BLACK, BASE_URL } from "../constants/constants";
 import { RatingButton } from "./RatingButton";
+import axios from "axios";
 
-export const RatingForm = ({placeId}) => {
+export const RatingForm = ({ placeId }) => {
     const [display, SetDisplay] = useState(false);
+    const [loading, setLoading] = useState(false);
 
-    const sendReview = review => {
-        console.log(`envou a nota ${review} no id ${placeId}`);
+    const sendReview = async review => {
+        setLoading(true);
+        try {
+            await axios.patch(`${BASE_URL}/${placeId}`, { rating: review })
+            window.location.reload();
+        } catch (err) {
+            console.log(err.response.data);
+            setLoading(false);
+        }
     };
 
     return (
-        <DropDown onClick={() => SetDisplay(!display)}>
-            <RatingButton />
-            <DropDownContent visibleForm={display}>
-                <Options
-                    onClick={() => sendReview("terrible")}>
-                    Never again
-                </Options>
-                <Options
-                    onClick={() => sendReview("bad")}>
-                    No
-                </Options>
-                <Options onClick={() => sendReview("ok")}>
-                    Meh
-                </Options>
-                <Options onClick={() => sendReview("good")}>
-                    I like it
-                </Options>
-                <Options onClick={() => sendReview("great")}>
-                    LOVE it
-                </Options>
-            </DropDownContent>
-        </DropDown>
+        <>
+            {loading
+                ?
+                <DropDown>
+                    <RatingButton text="Processing..." status={loading} />
+                </DropDown>
+                :
+                <DropDown onClick={(e) => SetDisplay(!display)}>
+                    <RatingButton text="Review" status={loading} />
+                    <DropDownContent visibleForm={display}>
+                        <Options
+                            onClick={() => sendReview("terrible")}>
+                            Never again
+                        </Options>
+                        <Options
+                            onClick={() => sendReview("bad")}>
+                            No
+                        </Options>
+                        <Options onClick={() => sendReview("ok")}>
+                            Meh
+                        </Options>
+                        <Options onClick={() => sendReview("good")}>
+                            I like it
+                        </Options>
+                        <Options onClick={() => sendReview("great")}>
+                            LOVE it
+                        </Options>
+                    </DropDownContent>
+                </DropDown>
+            }
+        </>
     );
 };
 

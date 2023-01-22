@@ -1,9 +1,9 @@
 import styled from "styled-components";
 import { DARK_GREY } from "../constants/constants";
 
-export const RatingButton = () => {
+export const RatingButton = ({text, status}) => {
     return (
-        <Button>Review</Button>
+        <Button disabled={status}>{text}</Button>
     );
 };
 
@@ -16,6 +16,6 @@ const Button = styled.button`
     border: none;
     border-radius: 10px;
     &:active {
-        background-color: #b5bdc4;
+        background-color: ${props => props.status ? "#b5bdc4" : DARK_GREY}
     }
 `;
