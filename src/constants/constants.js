@@ -1,4 +1,4 @@
-/* export const BASE_URL = ""; */
+export const BASE_URL = "https://edreview-api.onrender.com";
 
 export const LIGHT_YELLOW = "#ffd205";
 export const YELLOW = "#F2B705";
