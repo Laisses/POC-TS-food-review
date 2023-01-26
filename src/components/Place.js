@@ -14,7 +14,7 @@ export const Place = () => {
 
     const getPlaces = async () => {
         try {
-            const res = await axios.get(`${BASE_URL}/`);
+            const res = await axios.get(`${BASE_URL}/places`);
             setPlaces(res.data);
         } catch (err) {
             console.log(err);

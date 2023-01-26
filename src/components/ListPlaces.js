@@ -47,7 +47,7 @@ export const ListOfPlaces = place => {
         if (confirmation) {
             setDeleting(true);
             try {
-                await axios.delete(`${BASE_URL}/${id}`);
+                await axios.delete(`${BASE_URL}/places/${id}`);
                 window.location.reload();
             } catch (err) {
                 console.log(err.response.data);

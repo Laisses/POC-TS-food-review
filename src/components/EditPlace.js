@@ -20,7 +20,7 @@ export const EditForm = props => {
         setLoading(true);
 
         try {
-            await axios.put(`${BASE_URL}/${id}`, form);
+            await axios.put(`${BASE_URL}/places/${id}`, form);
             window.location.reload();
             setLoading(false);
             setEdit(false);

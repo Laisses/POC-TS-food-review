@@ -20,7 +20,7 @@ export const Form = props => {
         setLoading(true);
 
         try {
-            await axios.post(`${BASE_URL}/`, form);
+            await axios.post(`${BASE_URL}/places`, form);
             window.location.reload();
             setLoading(false);
             setOpenForm(false);

@@ -11,7 +11,7 @@ export const RatingForm = ({ placeId }) => {
     const sendReview = async review => {
         setLoading(true);
         try {
-            await axios.patch(`${BASE_URL}/${placeId}`, { rating: review })
+            await axios.patch(`${BASE_URL}/places/${placeId}`, { rating: review })
             window.location.reload();
         } catch (err) {
             console.log(err.response.data);
